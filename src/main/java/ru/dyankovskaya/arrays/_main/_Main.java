@@ -18,7 +18,7 @@ public class _Main {
         int[] array = new int[10];
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(-100, 101);
+            array[i] = random.nextInt(0, 10);
             System.out.print(array[i] + " ");
         }
         System.out.println("массив выведен");
@@ -40,12 +40,7 @@ public class _Main {
         System.out.println("2. " + odd);
 
         //3. вывод количества простых чисел в массиве
-        for (int i = 0; i < array.length; i++) {
-            if (ArraysMethods.isSimple(array[i])) {
-                simple++;
-            }
-        }
-        System.out.println("3. " + simple);
+        System.out.println("3. " + ArraysMethods.isSimple1(array));
 
         //4. вывод суммы всех чисел массива
         // ПОДСКАЖИТЕ КАК ВЫНЕСТИ В КЛАСС ArrayMethods И ВЫЗВАТЬ ЕГО СЮДА, ВСЮ ГОЛОВУ СЛОМАЛА
