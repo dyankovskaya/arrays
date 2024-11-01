@@ -2,17 +2,42 @@ package ru.dyankovskaya.arrays.service;
 
 public class ArraysMethods {
 
-    // 1, 2. количество четных и нечетных чисел в массиве
-    public static boolean isEvenNum(int element) {
-        if (element % 2 == 0) {
-            return true;
+    // 1. количество четных чисел в массиве
+    public static int evenCounter(int[] array) {
+        int counterEven = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                counterEven++;
+            }
         }
-        return false;
+        return counterEven;
+    }
+
+    //2. количество нечетных чисел в массиве
+    public static int oddCounter(int[] array) {
+        int counterOdd = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 != 0) {
+                counterOdd++;
+            }
+        }
+        return counterOdd;
     }
 
     //3. количество простых чисел в массиве
-    public static boolean isSimple(int element) {
-        if (element < 2) {
+    public static int primeCounter(int[] array) {
+        int counter = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (isPrime(array[i])) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    // определитель простого числа для 3 задания
+    public static boolean isPrime(int element) {
+        if (element <= 1) {
             return false;
         }
         for (int div = 2; div <= Math.sqrt(element); div++) {
@@ -24,15 +49,38 @@ public class ArraysMethods {
     }
 
     //4. сумма всех чисел в массиве
-
+    public static int sum(int[] array) {
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum = sum + array[i];
+        }
+        return sum;
+    }
 
     //5. разность между суммой четных индексов и суммой нечетных индексов
+    public static int diff(int[] array) {
+        int evenIndexSum = 0;
+        int oddIndexSum = 0;
+        int diff = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (i % 2 == 0) {
+                evenIndexSum = evenIndexSum + array[i];
+            } else {
+                oddIndexSum = oddIndexSum + array[i];
+            }
+        }
+        diff = evenIndexSum - oddIndexSum;
+        return diff;
+    }
 
     //6. количество нулей в массиве
-    public static boolean isZero(int element) {
-        if (element == 0) {
-            return true;
+    public static int zeroCounter(int[] array) {
+        int zeroCounter = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == 0) {
+                zeroCounter++;
+            }
         }
-        return false;
+        return zeroCounter;
     }
 }
